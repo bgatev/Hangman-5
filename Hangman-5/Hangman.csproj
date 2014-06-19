@@ -40,10 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game.cs" />
     <Compile Include="Hangman.cs" />
+    <Compile Include="Messages.cs" />
     <Compile Include="Scoreboard.cs" />
+    <Compile Include="Words.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="c:\Program Files (x86)\MSBuild\StyleCop\v4.7\StyleCop.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
