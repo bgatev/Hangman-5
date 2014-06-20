@@ -1,5 +1,0 @@
-D:\BGatev\Personal\HighQualityCode\TeamWork\Hangman-5\bin\Debug\Hangman.exe
-D:\BGatev\Personal\HighQualityCode\TeamWork\Hangman-5\bin\Debug\Hangman.pdb
-D:\BGatev\Personal\HighQualityCode\TeamWork\Hangman-5\obj\x86\Debug\Hangman.csprojResolveAssemblyReference.cache
-D:\BGatev\Personal\HighQualityCode\TeamWork\Hangman-5\obj\x86\Debug\Hangman.exe
-D:\BGatev\Personal\HighQualityCode\TeamWork\Hangman-5\obj\x86\Debug\Hangman.pdb

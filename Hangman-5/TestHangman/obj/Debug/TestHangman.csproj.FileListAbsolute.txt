@@ -1,7 +1,0 @@
-D:\BGatev\Personal\HighQualityCode\TeamWork\Hangman-5\TestHangman\bin\Debug\TestHangman.dll
-D:\BGatev\Personal\HighQualityCode\TeamWork\Hangman-5\TestHangman\bin\Debug\TestHangman.pdb
-D:\BGatev\Personal\HighQualityCode\TeamWork\Hangman-5\TestHangman\bin\Debug\Hangman.exe
-D:\BGatev\Personal\HighQualityCode\TeamWork\Hangman-5\TestHangman\bin\Debug\Hangman.pdb
-D:\BGatev\Personal\HighQualityCode\TeamWork\Hangman-5\TestHangman\obj\Debug\TestHangman.csprojResolveAssemblyReference.cache
-D:\BGatev\Personal\HighQualityCode\TeamWork\Hangman-5\TestHangman\obj\Debug\TestHangman.dll
-D:\BGatev\Personal\HighQualityCode\TeamWork\Hangman-5\TestHangman\obj\Debug\TestHangman.pdb
