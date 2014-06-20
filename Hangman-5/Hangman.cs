@@ -25,12 +25,12 @@
                     }
                     else
                     {
-                        Messages.PrintInvalidEntry();
+                        Console.WriteLine(MessageFactory.GetMessage(7).Content());
                     }
                 }
                 else if (inputLine.Length == 0)
                 {
-                    Messages.PrintInvalidEntry();
+                    Console.WriteLine(MessageFactory.GetMessage(7).Content());
                 }
                 else if ((inputLine == "top") || (inputLine == "restart") || (inputLine == "help") || (inputLine == "exit"))
                 {
@@ -39,17 +39,17 @@
                 }
                 else
                 {
-                    Messages.PrintInvalidEntry();
+                    Console.WriteLine(MessageFactory.GetMessage(7).Content());
                 }
             }
 
             return suggestedLetter;
         }
 
-        public static void ProcessUserGuess(string suggestedLetter, string secretWord, char[] currentWord, ref int mistakes)
+        public static void ProcessUserGuess(string suggestedLetter, string secretWord, Words currentWord, ref int mistakes)
         {
             int revealedLetters = 0;
-            bool isLetterRevealed = Words.IsLetterRevealed(suggestedLetter, currentWord);
+            bool isLetterRevealed = currentWord.IsLetterRevealed(suggestedLetter);
 
             if (!isLetterRevealed)
             {
@@ -65,16 +65,16 @@
 
             if (revealedLetters > 0)
             {
-                bool wordIsRevealed = Words.IsRevealed(currentWord);
+                bool wordIsRevealed = currentWord.IsRevealed();
 
                 if (!wordIsRevealed)
                 {
-                    Messages.PrintOnSuccessLetter(revealedLetters);
+                    Console.WriteLine(MessageFactory.GetMessage(5).Content(revealedLetters));
                 }
             }
             else
             {
-                Messages.PrintOnRepeatedLetter(suggestedLetter[0]);
+                Console.WriteLine(MessageFactory.GetMessage(6).Content(suggestedLetter[0]));
                 mistakes++;
             }
         }
@@ -85,9 +85,11 @@
 
             while (!gameOver)
             {
-                Messages.PrintWelcome();
+                Console.WriteLine(MessageFactory.GetMessage(0).Content());
 
-                gameOver = Game.Play();
+                Game newGame = new Game();
+
+                gameOver = newGame.Play();
                 Console.WriteLine();
             }
         }

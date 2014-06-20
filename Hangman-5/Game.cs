@@ -4,10 +4,13 @@
 
     public class Game
     {
-        public static bool Play()
+        public bool Play()
         {
-            string wordToGuess = Words.SelectRandom();
-            char[] currentWord = Words.EmptyWord(wordToGuess.Length);
+            string wordToGuess = Words.GetRandom();
+            Words currentWord = new Words(wordToGuess);
+
+            currentWord.Empty(wordToGuess.Length);
+
             int mistakes = 0;
 
             bool gameOver = false;
@@ -16,7 +19,7 @@
 
             while (!currentGameOver)
             {
-                Words.Print(currentWord);
+                currentWord.Print();
 
                 string command = string.Empty;
                 string suggestedLetter = Hangman.GetUserInput(out command);
@@ -27,10 +30,10 @@
                 }
                 else
                 {
-                    Game.Process(command, wordToGuess, currentWord, out gameOver, out currentGameOver, out hintUsed);
+                    this.Process(command, wordToGuess, currentWord, out gameOver, out currentGameOver, out hintUsed);
                 }
 
-                bool gameIsWon = IsWon(currentWord, hintUsed, mistakes);
+                bool gameIsWon = this.IsWon(currentWord, hintUsed, mistakes);
 
                 if (gameIsWon)
                 {
@@ -41,28 +44,28 @@
             return gameOver;
         }
 
-        public static bool IsWon(char[] currentWord, bool helpIsUsed, int mistakes)
+        private bool IsWon(Words currentWord, bool helpIsUsed, int mistakes)
         {
-            bool wordIsRevealed = Words.IsRevealed(currentWord);
+            bool wordIsRevealed = currentWord.IsRevealed();
 
             if (wordIsRevealed)
             {
                 if (helpIsUsed)
                 {
-                    Messages.PrintCheatWin(mistakes);
-                    Words.Print(currentWord);
+                    Console.WriteLine(MessageFactory.GetMessage(4).Content(mistakes));
+                    currentWord.Print();
                 }
                 else
                 {
-                    Messages.PrintWin(mistakes);
-                    Words.Print(currentWord);
+                    Console.WriteLine(MessageFactory.GetMessage(3).Content(mistakes));
+                    currentWord.Print();
 
                     bool topscoreResult = Scoreboard.IsTopScoreResult(mistakes);
 
                     if (topscoreResult)
                     {
                         Scoreboard.AddNewTopscoreRecord(mistakes);
-                        Messages.PrintScoreBoard();
+                        Scoreboard.Print();
                     }
                 }
             }
@@ -70,7 +73,7 @@
             return wordIsRevealed;
         }
 
-        private static void Process(string command, string secretWord, char[] currentWord, out bool endOfAllGames, out bool endOfCurrentGame, out bool helpIsUsed)
+        private void Process(string command, string secretWord, Words currentWord, out bool endOfAllGames, out bool endOfCurrentGame, out bool helpIsUsed)
         {
             endOfCurrentGame = false;
             endOfAllGames = false;
@@ -79,20 +82,20 @@
             switch (command)
             {
                 case "top":
-                    Messages.PrintScoreBoard();
+                    Scoreboard.Print();
                     break;
                 case "restart":
                     endOfCurrentGame = true;
                     endOfAllGames = false;
                     break;
                 case "exit":
-                    Messages.PrintExit();
+                    Console.WriteLine(MessageFactory.GetMessage(1).Content());
                     endOfCurrentGame = true;
                     endOfAllGames = true;
                     break;
                 case "help":
-                    char revealedLetter = Words.GetHelp(secretWord, currentWord);
-                    Messages.PrintGetHelp(revealedLetter);
+                    char revealedLetter = currentWord.GetHelp(secretWord);
+                    Console.WriteLine(MessageFactory.GetMessage(2).Content(revealedLetter));
                     helpIsUsed = true;
                     break;
                 default:

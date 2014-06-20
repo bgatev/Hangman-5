@@ -4,7 +4,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class MessagesTest
+    public class MessagesFactoryTest
     {
         [TestMethod]
         public void TestMethod1()

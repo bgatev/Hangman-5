@@ -1,19 +1,21 @@
 ﻿namespace HangmanGame
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
-    public class Words
+    /// <summary>
+    /// Adapter pattern for Words
+    /// </summary>
+    public class Words : Word, IPrintable   //extends Word, without changing Word's Methods
     {
         private static readonly string[] WordsArray = new string[] { "computer", "programmer", "software", "debugger", "compiler", "developer", "algorithm", "array", "method", "variable" };
-
-        public Words()
+        
+        public Words(string word) : base(word)
         {
         }
 
-        public static string SelectRandom()
+        public static string GetRandom()
         {
             Random randomGenerator = new Random();
 
@@ -23,73 +25,21 @@
             return randomWord;
         }
 
-        public static char[] EmptyWord(int wordLength)
+        public Words Empty(int wordLength)
         {
-            char[] emptyWord = new char[wordLength];
-
             for (int i = 0; i < wordLength; i++)
             {
-                emptyWord[i] = '_';
+                this[i] = '_';
             }
 
-            return emptyWord;
+            return this;
         }
 
-        public static bool IsLetterRevealed(string suggestedLetter, char[] currentWord)
-        {
-            for (int i = 0; i < currentWord.Length; i++)
-            {
-                if (currentWord[i] == suggestedLetter[0])
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        public static bool IsRevealed(char[] currentWord)
-        {
-            for (int index = 0; index < currentWord.Length; index++)
-            {
-                if (currentWord[index] == '_')
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        public static char GetHelp(string secretWord, char[] currentWord)
-        {
-            char revealedLetter = secretWord[0];
-
-            for (int i = 0; i < currentWord.Length; i++)
-            {
-                if (currentWord[i] == '_')
-                {
-                    revealedLetter = secretWord[i];
-                    break;
-                }
-            }
-
-            for (int i = 0; i < secretWord.Length; i++)
-            {
-                if (revealedLetter == secretWord[i])
-                {
-                    currentWord[i] = revealedLetter;
-                }
-            }
-
-            return revealedLetter;
-        }
-
-        public static void Print(char[] currentWord)
+        public void Print()
         {
             Console.Write("The secret word is:");
 
-            foreach (var letter in currentWord)
+            foreach (var letter in this.Chars)
             {
                 Console.Write(" {0}", letter);
             }

@@ -56,6 +56,26 @@
             TopScore.Sort(CompareByKeys);
         }
 
+        public static void Print()
+        {
+            Console.WriteLine("Scoreboard:");
+
+            if (TopScore.Count > 0)
+            {
+                for (int i = 0; i < TopScore.Count; i++)
+                {
+                    string name = TopScore[i].Value;
+                    int mistakes = TopScore[i].Key;
+
+                    Console.WriteLine("{0}. {1} --> {2} mistakes", i + 1, name, mistakes);
+                }
+            }
+            else
+            {
+                Console.WriteLine("There are no records in the scoreboard yet.");
+            }
+        }
+
         private static string GetPlayerName()
         {
             while (true)
