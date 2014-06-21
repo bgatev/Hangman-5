@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entensions\ClassExtensions.cs" />
-    <Compile Include="IPrintable.cs" />
+    <Compile Include="Interfaces\IPrintable.cs" />
     <Compile Include="Messages\CheatWinMessage.cs" />
     <Compile Include="Messages\ExitMessage.cs" />
     <Compile Include="MessageFactory.cs" />
@@ -52,7 +52,7 @@
     <Compile Include="Messages\WelcomeMessage.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Hangman.cs" />
-    <Compile Include="IMessage.cs" />
+    <Compile Include="Interfaces\IMessage.cs" />
     <Compile Include="Messages\WinMessage.cs" />
     <Compile Include="Scoreboard.cs" />
     <Compile Include="Entensions\StringExtensions.cs" />
