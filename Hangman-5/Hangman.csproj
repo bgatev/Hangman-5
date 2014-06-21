@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassExtensions.cs" />
+    <Compile Include="Entensions\ClassExtensions.cs" />
     <Compile Include="IPrintable.cs" />
     <Compile Include="Messages\CheatWinMessage.cs" />
     <Compile Include="Messages\ExitMessage.cs" />
@@ -55,7 +55,7 @@
     <Compile Include="IMessage.cs" />
     <Compile Include="Messages\WinMessage.cs" />
     <Compile Include="Scoreboard.cs" />
-    <Compile Include="StringExtensions.cs" />
+    <Compile Include="Entensions\StringExtensions.cs" />
     <Compile Include="Word.cs" />
     <Compile Include="Words.cs" />
   </ItemGroup>

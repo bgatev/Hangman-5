@@ -1,7 +1,8 @@
 ﻿namespace HangmanGame
 {
     using System.Text;
-
+    using Extensions;   //Entensions Pattern
+    
     public class Word
     {
         internal char[] Chars;

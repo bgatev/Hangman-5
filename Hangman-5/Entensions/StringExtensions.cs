@@ -1,4 +1,4 @@
-﻿namespace HangmanGame
+﻿namespace Extensions
 {
     using System;
 
@@ -25,16 +25,22 @@
         public static T ToEnum<T>(this string value, bool ignorecase)
         {
             if (value == null)
+            {
                 throw new ArgumentNullException("Value");
+            }
 
             value = value.Trim();
 
             if (value.Length == 0)
+            {
                 throw new ArgumentNullException("Must specify valid information for parsing in the string.", "value");
+            }
 
             Type t = typeof(T);
             if (!t.IsEnum)
+            {
                 throw new ArgumentException("Type provided must be an Enum.", "T");
+            }
 
             return (T)Enum.Parse(t, value, ignorecase);
         }
@@ -46,7 +52,11 @@
 
         public static string GetValueOrDefault(this string value, string defaultvalue)
         {
-            if (value != null) return value;
+            if (value != null)
+            {
+                return value;
+            }
+             
             return defaultvalue;
         }
 

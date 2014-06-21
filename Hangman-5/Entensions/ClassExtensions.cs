@@ -1,4 +1,4 @@
-﻿namespace HangmanGame
+﻿namespace Extensions
 {
     using System;
 
@@ -16,7 +16,6 @@
             {
                 throw new ArgumentNullException(text + " not allowed to be null");
             }
-
         }
 
         /*[TestMethod, ExpectedException(typeof(ArgumentNullException))]
