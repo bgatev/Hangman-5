@@ -1,6 +1,7 @@
 ﻿namespace HangmanGame
 {
     using System;
+    using Extensions;
 
     public class Game
     {
@@ -52,12 +53,12 @@
             {
                 if (helpIsUsed)
                 {
-                    Console.WriteLine(MessageFactory.GetMessage(4).Content(mistakes));
+                    Console.WriteLine(MessageFactory.GetMessage("cheatWin".ToEnum<Messages>()).Content(mistakes));
                     currentWord.Print();
                 }
                 else
                 {
-                    Console.WriteLine(MessageFactory.GetMessage(3).Content(mistakes));
+                    Console.WriteLine(MessageFactory.GetMessage("win".ToEnum<Messages>()).Content(mistakes));
                     currentWord.Print();
 
                     bool topscoreResult = Scoreboard.IsTopScoreResult(mistakes);
@@ -89,13 +90,13 @@
                     endOfAllGames = false;
                     break;
                 case "exit":
-                    Console.WriteLine(MessageFactory.GetMessage(1).Content());
+                    Console.WriteLine(MessageFactory.GetMessage("exit".ToEnum<Messages>()).Content());
                     endOfCurrentGame = true;
                     endOfAllGames = true;
                     break;
                 case "help":
                     char revealedLetter = currentWord.GetHelp(secretWord);
-                    Console.WriteLine(MessageFactory.GetMessage(2).Content(revealedLetter));
+                    Console.WriteLine(MessageFactory.GetMessage("getHelp".ToEnum<Messages>()).Content(revealedLetter));
                     helpIsUsed = true;
                     break;
                 default:

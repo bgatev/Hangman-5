@@ -1,6 +1,7 @@
 ﻿namespace HangmanGame
 {
     using System;
+    using Extensions;
 
     public class Hangman
     {
@@ -25,12 +26,12 @@
                     }
                     else
                     {
-                        Console.WriteLine(MessageFactory.GetMessage(7).Content());
+                        Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<Messages>()).Content());
                     }
                 }
                 else if (inputLine.Length == 0)
                 {
-                    Console.WriteLine(MessageFactory.GetMessage(7).Content());
+                    Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<Messages>()).Content());
                 }
                 else if ((inputLine == "top") || (inputLine == "restart") || (inputLine == "help") || (inputLine == "exit"))
                 {
@@ -39,7 +40,7 @@
                 }
                 else
                 {
-                    Console.WriteLine(MessageFactory.GetMessage(7).Content());
+                    Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<Messages>()).Content());
                 }
             }
 
@@ -69,12 +70,12 @@
 
                 if (!wordIsRevealed)
                 {
-                    Console.WriteLine(MessageFactory.GetMessage(5).Content(revealedLetters));
+                    Console.WriteLine(MessageFactory.GetMessage("onSuccessLetter".ToEnum<Messages>()).Content(revealedLetters));
                 }
             }
             else
             {
-                Console.WriteLine(MessageFactory.GetMessage(6).Content(suggestedLetter[0]));
+                Console.WriteLine(MessageFactory.GetMessage("onRepeatedLetter".ToEnum<Messages>()).Content(suggestedLetter[0]));
                 mistakes++;
             }
         }
@@ -85,7 +86,7 @@
 
             while (!gameOver)
             {
-                Console.WriteLine(MessageFactory.GetMessage(0).Content());
+                Console.WriteLine(MessageFactory.GetMessage("welcome".ToEnum<Messages>()).Content());
 
                 Game newGame = new Game();
 

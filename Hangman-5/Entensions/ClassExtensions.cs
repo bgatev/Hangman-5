@@ -18,22 +18,7 @@
             }
         }
 
-        /*[TestMethod, ExpectedException(typeof(ArgumentNullException))]
-		public void ThrowIfArgumentIsNullOnDummyClass()
-		{
-			DummyClass sut = null;
-
-			sut.ThrowIfArgumentIsNull("DummyClass");			
-		}
-
-		[TestMethod]
-		public void ThrowIfArgumentIsNotNullOnDummyClass()
-		{
-			DummyClass sut = new DummyClass();
-
-			sut.ThrowIfArgumentIsNull("DummyClass");
-		}
-
+        /*
 		[TestMethod, ExpectedException(typeof(ArgumentNullException))]
 		public void ThrowIfArgumentIsNullOnString()
 		{

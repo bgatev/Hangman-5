@@ -27,6 +27,8 @@
 
         public bool IsLetterRevealed(string suggestedLetter)
         {
+            this.ThrowIfArgumentIsNull("IsLetterRevealed Current word");
+
             for (int i = 0; i < this.ToString().Length; i++)
             {
                 if (this[i] == suggestedLetter[0])
@@ -40,6 +42,8 @@
 
         public bool IsRevealed()
         {
+            this.ThrowIfArgumentIsNull("IsRevealed Current word");
+
             for (int i = 0; i < this.ToString().Length; i++)
             {
                 if (this[i] == '_')
@@ -77,6 +81,8 @@
 
         public override string ToString()
         {
+            this.ThrowIfArgumentIsNull("Current word");
+
             StringBuilder sb = new StringBuilder();
 
             for (int i = 0; i < this.Chars.Length; i++)

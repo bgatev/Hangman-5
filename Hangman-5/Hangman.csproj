@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Entensions\ClassExtensions.cs" />
     <Compile Include="Interfaces\IPrintable.cs" />
+    <Compile Include="Messages.cs" />
     <Compile Include="Messages\CheatWinMessage.cs" />
     <Compile Include="Messages\ExitMessage.cs" />
     <Compile Include="MessageFactory.cs" />

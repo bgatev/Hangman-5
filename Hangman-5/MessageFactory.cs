@@ -7,28 +7,26 @@
         /// <summary>
         /// Factory method pattern for Messages
         /// </summary>
-        public static IMessage GetMessage(int messageId)
+        public static IMessage GetMessage(Messages messageId)
         {
             switch (messageId)
             {
-                case 0:
+                case Messages.welcome:
                     return new WelcomeMessage();
-                case 1:
+                case Messages.exit:
                     return new ExitMessage();
-                case 2:
+                case Messages.getHelp:
                     return new GetHelpMessage();
-                case 3:
+                case Messages.win:
                     return new WinMessage();
-                case 4:
+                case Messages.cheatWin:
                     return new CheatWinMessage();
-                case 5:
+                case Messages.onSuccessLetter:
                     return new OnSuccessLetterMessage();
-                case 6:
+                case Messages.onRepeatedLetter:
                     return new OnRepeatedLetterMessage();
-                case 7:
+                case Messages.invalidEntry:
                     return new InvalidEntryMessage();
-                case 8:
-                    return new GetHelpMessage();
                 default:
                     return null;
             }

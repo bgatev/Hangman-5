@@ -60,46 +60,7 @@
             return defaultvalue;
         }
 
-        /*private enum DummyEnum
-        {
-            one,
-            two,
-            three
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void EmptyStringToDummyEnum()
-        {
-            "".ToEnum<DummyClass>();
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void NullStringToDummyEnum()
-        {
-            string nullstring = null;
-            nullstring.ToEnum<DummyClass>();
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Type provided must be an Enum.")]
-        public void StringToNonEnumType()
-        {
-            "dummystring".ToEnum<DummyClass>();
-        }
-
-        [TestMethod]
-        public void StringToDummyEnum()
-        {
-            Assert.AreEqual(DummyEnum.one, "one".ToEnum<DummyEnum>());
-        }
-
-        [TestMethod]
-        public void IgnoreCaseStringToDummyEnum()
-        {
-            Assert.AreEqual(DummyEnum.one, "one".ToEnum<DummyEnum>(true));
-        }
+        /*
         
         [TestMethod]
         public void NullStringToDefault()
