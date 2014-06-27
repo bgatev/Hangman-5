@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Commands\PrintCurrentWordCommand.cs" />
     <Compile Include="Entensions\ClassExtensions.cs" />
+    <Compile Include="Executor.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IPrintable.cs" />
     <Compile Include="Messages.cs" />

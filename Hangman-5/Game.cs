@@ -10,6 +10,7 @@
     {
         public bool Play()
         {
+            Executor executor = new Executor();
             string wordToGuess = Words.GetRandom();
             Words currentWord = new Words(wordToGuess);
 
@@ -25,7 +26,7 @@
 
             while (!currentGameOver)
             {
-                printCurrentWord.Execute();
+                executor.StoreAndExecute(printCurrentWord);
 
                 string command = string.Empty;
                 string suggestedLetter = Hangman.GetUserInput(out command);

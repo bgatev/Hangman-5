@@ -5,8 +5,9 @@ using System.Text;
 
 namespace Hangman.Interfaces
 {
-    interface ICommand
+    public interface ICommand
     {
         void Execute();
+
     }
 }
