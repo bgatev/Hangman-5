@@ -6,47 +6,7 @@
 
     public class Hangman
     {
-        public static string GetUserInput(out string command)
-        {
-            string suggestedLetter = string.Empty;
-            command = string.Empty;
-
-            while (true)
-            {
-                Console.Write("Enter your guess or command: ");
-                string inputLine = Console.ReadLine().ToLower();
-  
-                if (inputLine.Length == 1)
-                {
-                    bool isLetter = char.IsLetter(inputLine, 0);
-
-                    if (isLetter)
-                    {
-                        suggestedLetter = inputLine;
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<Messages>()).Content());
-                    }
-                }
-                else if (inputLine.Length == 0)
-                {
-                    Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<Messages>()).Content());
-                }
-                else if ((inputLine == "top") || (inputLine == "restart") || (inputLine == "help") || (inputLine == "exit"))
-                {
-                    command = inputLine;
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<Messages>()).Content());
-                }
-            }
-
-            return suggestedLetter;
-        }
+        
 
         public static void ProcessUserGuess(string suggestedLetter, string secretWord, Words currentWord, ref int mistakes)
         {

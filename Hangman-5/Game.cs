@@ -10,12 +10,14 @@
     {
         public bool Play()
         {
+            UserInputHandler inputHandler = new UserInputHandler();
             Executor executor = new Executor();
             string wordToGuess = Words.GetRandom();
             Words currentWord = new Words(wordToGuess);
 
-            ICommand printCurrentWord = new PrintCurrentWordCommand(currentWord);
 
+            ICommand printCurrentWord = new PrintCurrentWordCommand(currentWord);
+            ICommand getInput = new GetUserInputCommand(inputHandler);
             currentWord.Empty(wordToGuess.Length);
 
             int mistakes = 0;
@@ -27,17 +29,15 @@
             while (!currentGameOver)
             {
                 executor.StoreAndExecute(printCurrentWord);
+                executor.StoreAndExecute(getInput);
 
-                string command = string.Empty;
-                string suggestedLetter = Hangman.GetUserInput(out command);
-
-                if (suggestedLetter != string.Empty)
+                if (inputHandler.LastInput != string.Empty)
                 {
-                    Hangman.ProcessUserGuess(suggestedLetter, wordToGuess, currentWord, ref mistakes);
+                    Hangman.ProcessUserGuess(inputHandler.LastInput, wordToGuess, currentWord, ref mistakes);
                 }
                 else
                 {
-                    this.Process(command, wordToGuess, currentWord, out gameOver, out currentGameOver, out hintUsed);
+                    this.Process(inputHandler.LastCommand, wordToGuess, currentWord, out gameOver, out currentGameOver, out hintUsed);
                 }
 
                 bool gameIsWon = this.IsWon(currentWord, hintUsed, mistakes);
