@@ -7,7 +7,7 @@ using HangmanGame;
 
 namespace Hangman.Commands
 {
-    public class PrintCurrentWordCommand:ICommand
+    public class PrintCurrentWordCommand : ICommand
     {
         private UserInputHandler handler;
 
@@ -15,6 +15,7 @@ namespace Hangman.Commands
         {
             this.handler = handler;
         }
+
         public void Execute()
         {
             this.handler.CurrentWord.Print();

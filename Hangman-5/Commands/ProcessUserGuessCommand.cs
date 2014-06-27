@@ -6,13 +6,15 @@ using System.Text;
 
 namespace Hangman.Commands
 {
-    public class ProcessUserGuessCommand:ICommand
+    public class ProcessUserGuessCommand : ICommand
     {
         private UserInputHandler handler;
-        public  ProcessUserGuessCommand (UserInputHandler handler)
+
+        public ProcessUserGuessCommand(UserInputHandler handler)
         {
             this.handler = handler;
         }
+
         public void Execute()
         {
             this.handler.ProcessUserGuess();

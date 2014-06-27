@@ -15,7 +15,6 @@
             //string wordToGuess = Words.GetRandom();
             //Words currentWord = new Words(wordToGuess);
 
-
             ICommand printCurrentWord = new PrintCurrentWordCommand(inputHandler);
             ICommand getInput = new GetUserInputCommand(inputHandler);
             ICommand processInput = new ProcessUserGuessCommand(inputHandler);
@@ -53,42 +52,6 @@
 
             return inputHandler.EndOfAllGames;
         }
-
-        //private bool IsWon()
-        //{
-        //    bool wordIsRevealed = currentWord.IsRevealed();
-
-        //    if (wordIsRevealed)
-        //    {
-        //        if (inputHandler.HelpIsUsed)
-        //        {
-        //            Console.WriteLine(MessageFactory.GetMessage("cheatWin".ToEnum<Messages>()).Content(mistakes));
-        //            currentWord.Print();
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine(MessageFactory.GetMessage("win".ToEnum<Messages>()).Content(mistakes));
-        //            currentWord.Print();
-
-        //            bool topscoreResult = Scoreboard.IsTopScoreResult(mistakes);
-
-        //            if (topscoreResult)
-        //            {
-        //                Scoreboard.AddNewTopscoreRecord(mistakes);
-        //                Scoreboard.Print();
-        //            }
-        //        }
-        //    }
-
-        //    return wordIsRevealed;
-        //}
-
-        //private void Process(string command, string secretWord, Words currentWord, out bool endOfAllGames, out bool endOfCurrentGame, out bool helpIsUsed)
-        //{
-        //    endOfCurrentGame = false;
-        //    endOfAllGames = false;
-        //    helpIsUsed = false;
-
         //    switch (command)
         //    {
         //        case "top":
@@ -112,5 +75,34 @@
         //            break;
         //    }
         //}
+        //private void Process(string command, string secretWord, Words currentWord, out bool endOfAllGames, out bool endOfCurrentGame, out bool helpIsUsed)
+        //{
+        //    endOfCurrentGame = false;
+        //    endOfAllGames = false;
+        //    helpIsUsed = false;
+        //    return wordIsRevealed;
+        //}
+        //            if (topscoreResult)
+        //            {
+        //                Scoreboard.AddNewTopscoreRecord(mistakes);
+        //                Scoreboard.Print();
+        //            }
+        //        }
+        //    }
+        //            bool topscoreResult = Scoreboard.IsTopScoreResult(mistakes);
+        //    if (wordIsRevealed)
+        //    {
+        //        if (inputHandler.HelpIsUsed)
+        //        {
+        //            Console.WriteLine(MessageFactory.GetMessage("cheatWin".ToEnum<Messages>()).Content(mistakes));
+        //            currentWord.Print();
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine(MessageFactory.GetMessage("win".ToEnum<Messages>()).Content(mistakes));
+        //            currentWord.Print();
+        //private bool IsWon()
+        //{
+        //    bool wordIsRevealed = currentWord.IsRevealed();
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Hangman.Commands
 {
-    public class GetUserInputCommand:ICommand
+    public class GetUserInputCommand : ICommand
     {
         private readonly UserInputHandler handler;
 

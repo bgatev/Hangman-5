@@ -6,7 +6,7 @@ using Hangman.Interfaces;
 
 namespace Hangman.Commands
 {
-    public class ProcessUserCommand:ICommand
+    public class ProcessUserCommand : ICommand
     {
         private UserInputHandler handler;
 
@@ -14,6 +14,7 @@ namespace Hangman.Commands
         {
             this.handler = handler;
         }
+
         public void Execute()
         {
             this.handler.ProcessUserCommand();

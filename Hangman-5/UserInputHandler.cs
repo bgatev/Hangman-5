@@ -7,15 +7,9 @@ namespace Hangman
 {
     public class UserInputHandler
     {
-        public bool HelpIsUsed;
-
         private int mistakes;
 
         private string wordToGuess;
-
-        public bool EndOfCurrentGame { get; set; }
-
-        public bool EndOfAllGames;
 
         public UserInputHandler(string wordToGuess)
         {
@@ -24,6 +18,12 @@ namespace Hangman
             this.mistakes = 0;
             this.CurrentWord.Empty(this.wordToGuess.Length);
         }
+
+        public bool HelpIsUsed { get; set; }
+
+        public bool EndOfAllGames { get; set; }
+
+        public bool EndOfCurrentGame { get; set; }
 
         public string LastCommand { get; set; }
 
