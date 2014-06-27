@@ -10,104 +10,107 @@
     {
         public bool Play()
         {
-            UserInputHandler inputHandler = new UserInputHandler();
+            UserInputHandler inputHandler = new UserInputHandler(Words.GetRandom());
             Executor executor = new Executor();
-            string wordToGuess = Words.GetRandom();
-            Words currentWord = new Words(wordToGuess);
+            //string wordToGuess = Words.GetRandom();
+            //Words currentWord = new Words(wordToGuess);
 
 
-            ICommand printCurrentWord = new PrintCurrentWordCommand(currentWord);
+            ICommand printCurrentWord = new PrintCurrentWordCommand(inputHandler);
             ICommand getInput = new GetUserInputCommand(inputHandler);
-            currentWord.Empty(wordToGuess.Length);
+            ICommand processInput = new ProcessUserGuessCommand(inputHandler);
+            ICommand processCommand = new ProcessUserCommand(inputHandler);
+            //currentWord.Empty(wordToGuess.Length);
 
             int mistakes = 0;
 
-            bool gameOver = false;
-            bool currentGameOver = false;
-            bool hintUsed = false;
+            //bool gameOver = false;
+            //bool currentGameOver = false;
+            //bool hintUsed = false;
 
-            while (!currentGameOver)
+            while (!inputHandler.EndOfCurrentGame)
             {
                 executor.StoreAndExecute(printCurrentWord);
                 executor.StoreAndExecute(getInput);
 
                 if (inputHandler.LastInput != string.Empty)
                 {
-                    Hangman.ProcessUserGuess(inputHandler.LastInput, wordToGuess, currentWord, ref mistakes);
+                    executor.StoreAndExecute(processInput);
                 }
                 else
                 {
-                    this.Process(inputHandler.LastCommand, wordToGuess, currentWord, out gameOver, out currentGameOver, out hintUsed);
+                    //this.Process(inputHandler.LastCommand, wordToGuess, currentWord, out gameOver, out currentGameOver, out hintUsed);
+                    executor.StoreAndExecute(processCommand);
                 }
 
-                bool gameIsWon = this.IsWon(currentWord, hintUsed, mistakes);
+                bool gameIsWon = inputHandler.IsWon();
 
                 if (gameIsWon)
                 {
-                    currentGameOver = true;
+                    inputHandler.EndOfCurrentGame = true;
                 }
             }
 
-            return gameOver;
+            return inputHandler.EndOfAllGames;
         }
 
-        private bool IsWon(Words currentWord, bool helpIsUsed, int mistakes)
-        {
-            bool wordIsRevealed = currentWord.IsRevealed();
+        //private bool IsWon()
+        //{
+        //    bool wordIsRevealed = currentWord.IsRevealed();
 
-            if (wordIsRevealed)
-            {
-                if (helpIsUsed)
-                {
-                    Console.WriteLine(MessageFactory.GetMessage("cheatWin".ToEnum<Messages>()).Content(mistakes));
-                    currentWord.Print();
-                }
-                else
-                {
-                    Console.WriteLine(MessageFactory.GetMessage("win".ToEnum<Messages>()).Content(mistakes));
-                    currentWord.Print();
+        //    if (wordIsRevealed)
+        //    {
+        //        if (inputHandler.HelpIsUsed)
+        //        {
+        //            Console.WriteLine(MessageFactory.GetMessage("cheatWin".ToEnum<Messages>()).Content(mistakes));
+        //            currentWord.Print();
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine(MessageFactory.GetMessage("win".ToEnum<Messages>()).Content(mistakes));
+        //            currentWord.Print();
 
-                    bool topscoreResult = Scoreboard.IsTopScoreResult(mistakes);
+        //            bool topscoreResult = Scoreboard.IsTopScoreResult(mistakes);
 
-                    if (topscoreResult)
-                    {
-                        Scoreboard.AddNewTopscoreRecord(mistakes);
-                        Scoreboard.Print();
-                    }
-                }
-            }
+        //            if (topscoreResult)
+        //            {
+        //                Scoreboard.AddNewTopscoreRecord(mistakes);
+        //                Scoreboard.Print();
+        //            }
+        //        }
+        //    }
 
-            return wordIsRevealed;
-        }
+        //    return wordIsRevealed;
+        //}
 
-        private void Process(string command, string secretWord, Words currentWord, out bool endOfAllGames, out bool endOfCurrentGame, out bool helpIsUsed)
-        {
-            endOfCurrentGame = false;
-            endOfAllGames = false;
-            helpIsUsed = false;
+        //private void Process(string command, string secretWord, Words currentWord, out bool endOfAllGames, out bool endOfCurrentGame, out bool helpIsUsed)
+        //{
+        //    endOfCurrentGame = false;
+        //    endOfAllGames = false;
+        //    helpIsUsed = false;
 
-            switch (command)
-            {
-                case "top":
-                    Scoreboard.Print();
-                    break;
-                case "restart":
-                    endOfCurrentGame = true;
-                    endOfAllGames = false;
-                    break;
-                case "exit":
-                    Console.WriteLine(MessageFactory.GetMessage("exit".ToEnum<Messages>()).Content());
-                    endOfCurrentGame = true;
-                    endOfAllGames = true;
-                    break;
-                case "help":
-                    char revealedLetter = currentWord.GetHelp(secretWord);
-                    Console.WriteLine(MessageFactory.GetMessage("getHelp".ToEnum<Messages>()).Content(revealedLetter));
-                    helpIsUsed = true;
-                    break;
-                default:
-                    break;
-            }
-        }
+        //    switch (command)
+        //    {
+        //        case "top":
+        //            Scoreboard.Print();
+        //            break;
+        //        case "restart":
+        //            endOfCurrentGame = true;
+        //            endOfAllGames = false;
+        //            break;
+        //        case "exit":
+        //            Console.WriteLine(MessageFactory.GetMessage("exit".ToEnum<Messages>()).Content());
+        //            endOfCurrentGame = true;
+        //            endOfAllGames = true;
+        //            break;
+        //        case "help":
+        //            char revealedLetter = currentWord.GetHelp(secretWord);
+        //            Console.WriteLine(MessageFactory.GetMessage("getHelp".ToEnum<Messages>()).Content(revealedLetter));
+        //            helpIsUsed = true;
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
     }
 }

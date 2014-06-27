@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="Commands\PrintCurrentWordCommand.cs" />
     <Compile Include="Commands\GetUserInputCommand.cs" />
+    <Compile Include="Commands\ProcessUserCommand.cs" />
+    <Compile Include="Commands\ProcessUserGuessCommand.cs" />
     <Compile Include="Entensions\ClassExtensions.cs" />
     <Compile Include="Executor.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
