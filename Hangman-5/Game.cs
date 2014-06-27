@@ -1,7 +1,10 @@
-﻿namespace HangmanGame
+﻿namespace Hangman
 {
     using System;
     using Extensions;
+    using Interfaces;
+    using Commands;
+    using HangmanGame;
 
     public class Game
     {
@@ -9,6 +12,8 @@
         {
             string wordToGuess = Words.GetRandom();
             Words currentWord = new Words(wordToGuess);
+
+            ICommand printCurrentWord = new PrintCurrentWordCommand(currentWord);
 
             currentWord.Empty(wordToGuess.Length);
 
@@ -20,7 +25,7 @@
 
             while (!currentGameOver)
             {
-                currentWord.Print();
+                printCurrentWord.Execute();
 
                 string command = string.Empty;
                 string suggestedLetter = Hangman.GetUserInput(out command);

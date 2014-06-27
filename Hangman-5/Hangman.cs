@@ -1,7 +1,8 @@
-﻿namespace HangmanGame
+﻿namespace Hangman
 {
     using System;
     using Extensions;
+    using HangmanGame;
 
     public class Hangman
     {

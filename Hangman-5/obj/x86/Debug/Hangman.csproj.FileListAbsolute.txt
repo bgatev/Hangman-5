@@ -1,0 +1,5 @@
+D:\Hangman-5\Hangman-5\bin\Debug\Hangman.exe
+D:\Hangman-5\Hangman-5\bin\Debug\Hangman.pdb
+D:\Hangman-5\Hangman-5\obj\x86\Debug\Hangman.csprojResolveAssemblyReference.cache
+D:\Hangman-5\Hangman-5\obj\x86\Debug\Hangman.exe
+D:\Hangman-5\Hangman-5\obj\x86\Debug\Hangman.pdb
