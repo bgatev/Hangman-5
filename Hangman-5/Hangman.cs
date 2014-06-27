@@ -6,10 +6,6 @@
 
     public class Hangman
     {
-        
-
-        
-
         private static void Main()
         {
             bool gameOver = false;
