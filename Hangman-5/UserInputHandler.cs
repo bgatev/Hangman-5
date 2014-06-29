@@ -1,10 +1,9 @@
-﻿using System;
-using System.Linq;
-using Extensions;
-using HangmanGame;
-
-namespace Hangman
+﻿namespace HangmanGame
 {
+    using System;
+    using System.Linq;
+    using Extensions;
+
     public class UserInputHandler
     {
         private int mistakes;

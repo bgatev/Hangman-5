@@ -1,11 +1,8 @@
-﻿using Hangman.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Hangman.Commands
+﻿namespace HangmanGame.Commands
 {
+    using System;
+    using Interfaces;
+
     public class ProcessUserGuessCommand : ICommand
     {
         private UserInputHandler handler;
