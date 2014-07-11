@@ -1,4 +1,4 @@
-﻿namespace TestHangman
+﻿namespace HangmanGame.Tests
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

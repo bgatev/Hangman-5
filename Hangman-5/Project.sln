@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman", "Hangman.csproj", "{55078FB1-590F-4683-9B7D-ABF5E02F81BF}"
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangmanGame", "HangmanGame.csproj", "{55078FB1-590F-4683-9B7D-ABF5E02F81BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHangman", "TestHangman\TestHangman.csproj", "{C13824B8-91E3-4D2C-960F-0BB8F511C757}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangmanGame.Tests", "TestHangman\HangmanGame.Tests.csproj", "{C13824B8-91E3-4D2C-960F-0BB8F511C757}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

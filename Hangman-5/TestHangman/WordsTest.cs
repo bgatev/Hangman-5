@@ -1,5 +1,6 @@
-﻿namespace TestHangman
+﻿namespace HangmanGame.Tests
 {
+    using HangmanGame;
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
