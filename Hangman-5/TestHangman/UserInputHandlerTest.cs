@@ -2,6 +2,7 @@
 {
     using HangmanGame;
     using System;
+    using System.IO;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -22,8 +23,20 @@
         }
 
         [TestMethod]
-        public void UserInputHandlerShouldTakeLetters()
+        public void UserInputHandlerShouldTakeGuesses()
         {
+            using (StringWriter writer = new StringWriter())
+            {
+                StringReader reader = new StringReader("m");
+                Console.SetIn(reader);
+                Console.SetOut(writer);
+                TestHandler.GetUserInput();
+                Assert.AreEqual("m", TestHandler.LastInput);
+                TestHandler.ProcessUserGuess();
+                Assert.AreEqual<string>("Good job! You revealed 1 letter.", writer.ToString());
+            }
         }
+
+
     }
 }
