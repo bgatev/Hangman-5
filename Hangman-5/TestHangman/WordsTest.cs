@@ -8,7 +8,7 @@
     public class WordsTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Test1()
         {
         }
     }
