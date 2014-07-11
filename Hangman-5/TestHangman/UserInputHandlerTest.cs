@@ -23,7 +23,7 @@
         }
 
         [TestMethod]
-        public void UserInputHandlerShouldTakeGuesses()
+        public void UserInputHandlerShouldProcessRightGuesses()
         {
             using (StringWriter writer = new StringWriter())
             {
@@ -37,6 +37,43 @@
             }
         }
 
+        [TestMethod]
+        public void UserInputHandlerShouldProcessWrongGuesses()
+        {
+            using (StringWriter writer = new StringWriter())
+            {
+                StringReader reader = new StringReader("x");
+                Console.SetIn(reader);
+                Console.SetOut(writer);
+                TestHandler.GetUserInput();
+                Assert.AreEqual("x", TestHandler.LastInput);
+                TestHandler.ProcessUserGuess();
+                Assert.AreEqual<string>("Sorry! There are no unrevealed letters \"x\".", writer.ToString());
+            }
+        }
+
+        [TestMethod]
+        public void UserInputHandlerShouldNotTakeBadCommands()
+        {
+            using (StringWriter writer = new StringWriter())
+            {
+                StringReader reader = new StringReader("topx");
+                Console.SetIn(reader);
+                Console.SetOut(writer);
+                TestHandler.GetUserInput();
+                Assert.AreEqual<string>("Incorrect guess or command!", writer.ToString());
+            }
+        }
+
+        [TestMethod]
+        public void UserInputShouldRecogniseTheGameIsWon()
+        {
+            StringReader reader = new StringReader("p\nr\no\ng\nr\na\nm");
+            Console.SetIn(reader);
+            TestHandler.GetUserInput();
+            bool isGameWon = TestHandler.IsWon();
+            Assert.IsTrue(isGameWon);
+        }
 
     }
 }
