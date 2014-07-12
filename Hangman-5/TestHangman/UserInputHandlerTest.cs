@@ -9,17 +9,18 @@
     public class UserInputHandlerTest
     {
         private UserInputHandler TestHandler;
+        private static readonly string word = "program";
 
         [TestInitialize]
         public void InitialiseUserInputHandler()
         {
-            TestHandler = new UserInputHandler("program");
+            TestHandler = new UserInputHandler(word);
         }
 
         [TestMethod]
         public void UserInputHandlerShouldLoadAWordToGuess()
         {
-            Assert.AreEqual("_______", TestHandler.CurrentWord);
+            Assert.AreEqual("_______", TestHandler.CurrentWord.ToString());
         }
 
         [TestMethod]
@@ -33,7 +34,7 @@
                 TestHandler.GetUserInput();
                 Assert.AreEqual("m", TestHandler.LastInput);
                 TestHandler.ProcessUserGuess();
-                Assert.AreEqual<string>("Good job! You revealed 1 letter.", writer.ToString());
+                Assert.AreEqual("Enter your guess or command: Good job! You revealed 1 letter.\r\n", writer.ToString());
             }
         }
 
@@ -48,7 +49,8 @@
                 TestHandler.GetUserInput();
                 Assert.AreEqual("x", TestHandler.LastInput);
                 TestHandler.ProcessUserGuess();
-                Assert.AreEqual<string>("Sorry! There are no unrevealed letters \"x\".", writer.ToString());
+                Assert.AreEqual<string>("Enter your guess or command: Sorry! There are no unrevealed letters \"x\".\r\n",
+                    writer.ToString());
             }
         }
 
@@ -57,20 +59,29 @@
         {
             using (StringWriter writer = new StringWriter())
             {
-                StringReader reader = new StringReader("topx");
-                Console.SetIn(reader);
-                Console.SetOut(writer);
-                TestHandler.GetUserInput();
-                Assert.AreEqual<string>("Incorrect guess or command!", writer.ToString());
+                StringReader reader = new StringReader("topx\ntop");
+                using (reader)
+                {
+                    Console.SetIn(reader);
+                    Console.SetOut(writer);
+                    TestHandler.GetUserInput();
+                    Assert.AreEqual("Enter your guess or command: Incorrect guess or command!\r\nEnter your guess or command: ",
+                        writer.ToString());
+                }
             }
         }
 
         [TestMethod]
         public void UserInputShouldRecogniseTheGameIsWon()
         {
-            StringReader reader = new StringReader("p\nr\no\ng\nr\na\nm");
+            StringReader reader = new StringReader("p\nr\no\ng\nr\na\nm\ntestname");
             Console.SetIn(reader);
-            TestHandler.GetUserInput();
+            for (int i = 0; i < word.Length; i++)
+            {
+                TestHandler.GetUserInput();
+                TestHandler.ProcessUserGuess();
+            }
+
             bool isGameWon = TestHandler.IsWon();
             Assert.IsTrue(isGameWon);
         }
