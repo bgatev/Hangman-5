@@ -5,3 +5,10 @@ E:\GitHub\Hangman-5\Hangman-5\TestHangman\bin\Debug\Hangman.pdb
 E:\GitHub\Hangman-5\Hangman-5\TestHangman\obj\Debug\HangmanGame.Tests.csprojResolveAssemblyReference.cache
 E:\GitHub\Hangman-5\Hangman-5\TestHangman\obj\Debug\TestHangman.dll
 E:\GitHub\Hangman-5\Hangman-5\TestHangman\obj\Debug\TestHangman.pdb
+C:\Users\Nina\Documents\GitHub\Hangman-5\Hangman-5\TestHangman\bin\Debug\TestHangman.dll
+C:\Users\Nina\Documents\GitHub\Hangman-5\Hangman-5\TestHangman\bin\Debug\TestHangman.pdb
+C:\Users\Nina\Documents\GitHub\Hangman-5\Hangman-5\TestHangman\bin\Debug\Hangman.exe
+C:\Users\Nina\Documents\GitHub\Hangman-5\Hangman-5\TestHangman\bin\Debug\Hangman.pdb
+C:\Users\Nina\Documents\GitHub\Hangman-5\Hangman-5\TestHangman\obj\Debug\HangmanGame.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Nina\Documents\GitHub\Hangman-5\Hangman-5\TestHangman\obj\Debug\TestHangman.dll
+C:\Users\Nina\Documents\GitHub\Hangman-5\Hangman-5\TestHangman\obj\Debug\TestHangman.pdb
