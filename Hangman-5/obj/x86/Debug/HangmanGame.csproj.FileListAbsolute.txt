@@ -1,0 +1,2 @@
+E:\GitHub\Hangman-5\Hangman-5\obj\x86\Debug\Hangman.exe
+E:\GitHub\Hangman-5\Hangman-5\obj\x86\Debug\Hangman.pdb
