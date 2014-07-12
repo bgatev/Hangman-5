@@ -51,5 +51,30 @@
                 Assert.AreEqual(newTestName, topName);
             }
         }
+
+        public void ScoreboardShouldNotAddNonTopScores()
+        {
+            string testName = "Testname";
+            StringReader reader = new StringReader(testName);
+            for (int i = 0; i < 5; i++)
+            {
+                using (reader)
+                {
+                    Console.SetIn(reader);
+                    Scoreboard.AddNewTopscoreRecord(2);
+                }
+
+                string newTestName = "Topname";
+                reader = new StringReader(newTestName);
+                using (reader)
+                {
+                    Console.SetIn(reader);
+                    Scoreboard.AddNewTopscoreRecord(4);
+                }
+
+                //not finished
+                
+            }
+        }
     }
 }
