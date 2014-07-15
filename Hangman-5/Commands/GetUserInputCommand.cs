@@ -1,13 +1,15 @@
-﻿namespace HangmanGame.Commands
+﻿using Hangman.Interfaces;
+
+namespace HangmanGame.Commands
 {
     using System;
     using Interfaces;
 
     public class GetUserInputCommand : ICommand
     {
-        private readonly UserInputHandler handler;
+        private readonly IUserInputHandler handler;
 
-        public GetUserInputCommand(UserInputHandler handler)
+        public GetUserInputCommand(IUserInputHandler handler)
         {
             this.handler = handler;
         }

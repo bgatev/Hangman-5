@@ -1,13 +1,15 @@
-﻿namespace HangmanGame.Commands
+﻿using Hangman.Interfaces;
+
+namespace HangmanGame.Commands
 {
     using System;
     using Interfaces;
 
     public class PrintCurrentWordCommand : ICommand
     {
-        private UserInputHandler handler;
+        private IUserInputHandler handler;
 
-        public PrintCurrentWordCommand(UserInputHandler handler)
+        public PrintCurrentWordCommand(IUserInputHandler handler)
         {
             this.handler = handler;
         }

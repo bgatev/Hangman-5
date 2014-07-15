@@ -46,8 +46,10 @@
     <Compile Include="Commands\ProcessUserGuessCommand.cs" />
     <Compile Include="Entensions\ClassExtensions.cs" />
     <Compile Include="Executor.cs" />
+    <Compile Include="HangmanRunner.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IPrintable.cs" />
+    <Compile Include="Interfaces\IUserInputHandler.cs" />
     <Compile Include="Messages.cs" />
     <Compile Include="Messages\CheatWinMessage.cs" />
     <Compile Include="Messages\ExitMessage.cs" />
