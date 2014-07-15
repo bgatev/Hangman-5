@@ -1,45 +1,26 @@
 ﻿namespace HangmanGame
 {
-    using System;
-    using Commands;
-    using Extensions;
-    using Interfaces;
-
-    public class Game
+    /// <summary>
+    /// Template Method Design Pattern
+    /// </summary>
+    public abstract class Game
     {
-        public bool Play()
+        protected abstract void Initialize();
+
+        protected abstract void Update();
+
+        protected abstract bool IsWon();
+
+        /// <summary>
+        /// The Template Method
+        /// </summary>
+        public void Play()
         {
-            UserInputHandler inputHandler = new UserInputHandler(Words.GetRandom());
-            Executor executor = new Executor();
-
-            ICommand printCurrentWord = new PrintCurrentWordCommand(inputHandler);
-            ICommand getInput = new GetUserInputCommand(inputHandler);
-            ICommand processInput = new ProcessUserGuessCommand(inputHandler);
-            ICommand processCommand = new ProcessUserCommand(inputHandler);
-
-            while (!inputHandler.EndOfCurrentGame)
+            this.Initialize();
+            while (!this.IsWon())
             {
-                executor.StoreAndExecute(printCurrentWord);
-                executor.StoreAndExecute(getInput);
-
-                if (inputHandler.LastInput != string.Empty)
-                {
-                    executor.StoreAndExecute(processInput);
-                }
-                else
-                {
-                    executor.StoreAndExecute(processCommand);
-                }
-
-                bool gameIsWon = inputHandler.IsWon();
-
-                if (gameIsWon)
-                {
-                    inputHandler.EndOfCurrentGame = true;
-                }
+                this.Update();
             }
-
-            return inputHandler.EndOfAllGames;
         }
     }
 }

@@ -2,3 +2,8 @@ E:\GitHub\Hangman-5\Hangman-5\obj\x86\Debug\Hangman.exe
 E:\GitHub\Hangman-5\Hangman-5\obj\x86\Debug\Hangman.pdb
 C:\Users\Nina\Documents\GitHub\Hangman-5\Hangman-5\obj\x86\Debug\Hangman.exe
 C:\Users\Nina\Documents\GitHub\Hangman-5\Hangman-5\obj\x86\Debug\Hangman.pdb
+D:\TELERIK\Teamworks\Hangman-5\Hangman-5\obj\x86\Debug\Hangman.exe
+D:\TELERIK\Teamworks\Hangman-5\Hangman-5\obj\x86\Debug\Hangman.pdb
+D:\TELERIK\Teamworks\Hangman-5\Hangman-5\bin\Debug\Hangman.exe
+D:\TELERIK\Teamworks\Hangman-5\Hangman-5\bin\Debug\Hangman.pdb
+D:\TELERIK\Teamworks\Hangman-5\Hangman-5\obj\x86\Debug\HangmanGame.csprojResolveAssemblyReference.cache

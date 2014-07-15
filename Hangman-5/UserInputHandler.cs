@@ -1,16 +1,18 @@
-﻿namespace HangmanGame
-{
-    using System;
-    using System.Linq;
-    using Extensions;
+﻿using System;
+using Extensions;
+using Hangman.Interfaces;
 
-    public class UserInputHandler
+namespace HangmanGame
+{
+    public class UserInputHandler : IUserInputHandler
     {
+        private readonly string wordToGuess;
+
+        private bool helpIsUsed;
+        private string lastCommand;
         private int mistakes;
 
-        private string wordToGuess;
-
-        public UserInputHandler(string wordToGuess)
+        public UserInputHandler (string wordToGuess)
         {
             this.wordToGuess = wordToGuess;
             this.CurrentWord = new Words(this.wordToGuess);
@@ -18,22 +20,18 @@
             this.CurrentWord.Empty(this.wordToGuess.Length);
         }
 
-        public bool HelpIsUsed { get; set; }
-
-        public bool EndOfAllGames { get; set; }
+        public bool EndOfAllGames { get; private set; }
 
         public bool EndOfCurrentGame { get; set; }
 
-        public string LastCommand { get; set; }
+        public string LastInput { get; private set; }
 
-        public string LastInput { get; set; }
-
-        public Words CurrentWord { get; set; }
+        public Words CurrentWord { get; private set; }
 
         public void GetUserInput()
         {
             string suggestedLetter = string.Empty;
-            this.LastCommand = string.Empty;
+            this.lastCommand = string.Empty;
 
             while (true)
             {
@@ -49,18 +47,16 @@
                         suggestedLetter = inputLine;
                         break;
                     }
-                    else
-                    {
-                        Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<Messages>()).Content());
-                    }
+                    Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<Messages>()).Content());
                 }
                 else if (inputLine.Length == 0)
                 {
                     Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<Messages>()).Content());
                 }
-                else if ((inputLine == "top") || (inputLine == "restart") || (inputLine == "help") || (inputLine == "exit"))
+                else if ((inputLine == "top") || (inputLine == "restart") || (inputLine == "help") ||
+                         (inputLine == "exit"))
                 {
-                    this.LastCommand = inputLine;
+                    this.lastCommand = inputLine;
                     break;
                 }
                 else
@@ -95,12 +91,16 @@
 
                 if (!wordIsRevealed)
                 {
-                    Console.WriteLine(MessageFactory.GetMessage("onSuccessLetter".ToEnum<Messages>()).Content(revealedLetters));
+                    Console.WriteLine(
+                                      MessageFactory.GetMessage("onSuccessLetter".ToEnum<Messages>())
+                                                    .Content(revealedLetters));
                 }
             }
             else
             {
-                Console.WriteLine(MessageFactory.GetMessage("onRepeatedLetter".ToEnum<Messages>()).Content(this.LastInput[0]));
+                Console.WriteLine(
+                                  MessageFactory.GetMessage("onRepeatedLetter".ToEnum<Messages>())
+                                                .Content(this.LastInput[0]));
                 this.mistakes++;
             }
         }
@@ -109,9 +109,9 @@
         {
             this.EndOfCurrentGame = false;
             this.EndOfAllGames = false;
-            this.HelpIsUsed = false;
+            this.helpIsUsed = false;
 
-            switch (this.LastCommand)
+            switch (this.lastCommand)
             {
                 case "top":
                     Scoreboard.Print();
@@ -128,9 +128,7 @@
                 case "help":
                     char revealedLetter = this.CurrentWord.GetHelp(this.wordToGuess);
                     Console.WriteLine(MessageFactory.GetMessage("getHelp".ToEnum<Messages>()).Content(revealedLetter));
-                    this.HelpIsUsed = true;
-                    break;
-                default:
+                    this.helpIsUsed = true;
                     break;
             }
         }
@@ -141,7 +139,7 @@
 
             if (wordIsRevealed)
             {
-                if (this.HelpIsUsed)
+                if (this.helpIsUsed)
                 {
                     Console.WriteLine(MessageFactory.GetMessage("cheatWin".ToEnum<Messages>()).Content(this.mistakes));
                     this.CurrentWord.Print();
