@@ -1,17 +1,20 @@
-﻿using HangmanGame;
-
-namespace Hangman.Interfaces
+﻿namespace Hangman.Interfaces
 {
+    using HangmanGame;
+
+    /// <summary>
+    ///     Defines the required methods for a User input handler class.
+    /// </summary>
     public interface IUserInputHandler
     {
-        bool EndOfAllGames { get; }
-        bool EndOfCurrentGame { get;}
         string LastInput { get; }
 
         Words CurrentWord { get; }
 
         void GetUserInput();
+
         void ProcessUserGuess();
+
         void ProcessUserCommand();
 
         bool IsWon();

@@ -1,13 +1,13 @@
-﻿namespace HangmanGame
+﻿namespace Hangman
 {
     using System;
-    using System.Collections;
-    using System.Collections.Generic;
+    using HangmanGame;
+    using Interfaces;
 
     /// <summary>
     /// Adapter pattern for Words
     /// </summary>
-    public class Words : Word, IPrintable   //extends Word, without changing Word's Methods
+    public class Words : Word, IPrintable   // extends Word, without changing Word's Methods
     {
         private static readonly string[] WordsArray = new string[] { "computer", "programmer", "software", "debugger", "compiler", "developer", "algorithm", "array", "method", "variable" };
         
@@ -15,6 +15,10 @@
         {
         }
 
+        /// <summary>
+        /// Selects randomly the secret word for the current game among the predefined secret words array.
+        /// </summary>
+        /// <returns></returns>
         public static string GetRandom()
         {
             Random randomGenerator = new Random();
@@ -25,6 +29,11 @@
             return randomWord;
         }
 
+        /// <summary>
+        /// Replaces the word's letters with underscores and thus making the word "secret".
+        /// </summary>
+        /// <param name="wordLength"></param>
+        /// <returns></returns>
         public Words Empty(int wordLength)
         {
             for (int i = 0; i < wordLength; i++)
@@ -35,6 +44,9 @@
             return this;
         }
 
+        /// <summary>
+        /// Prints the secret word.
+        /// </summary>
         public void Print()
         {
             Console.Write("The secret word is:");

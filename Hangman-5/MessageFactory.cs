@@ -1,31 +1,32 @@
-﻿namespace HangmanGame
+﻿namespace Hangman
 {
-    using System;
+    using Interfaces;
+    using Messages;
 
     public static class MessageFactory
     {
         /// <summary>
-        /// Factory method pattern for Messages
+        ///     Factory method pattern for Messages
         /// </summary>
-        public static IMessage GetMessage(Messages messageId)
+        public static IMessage GetMessage(MessageType messageId)
         {
             switch (messageId)
             {
-                case Messages.welcome:
+                case MessageType.welcome:
                     return new WelcomeMessage();
-                case Messages.exit:
+                case MessageType.exit:
                     return new ExitMessage();
-                case Messages.getHelp:
+                case MessageType.getHelp:
                     return new GetHelpMessage();
-                case Messages.win:
+                case MessageType.win:
                     return new WinMessage();
-                case Messages.cheatWin:
+                case MessageType.cheatWin:
                     return new CheatWinMessage();
-                case Messages.onSuccessLetter:
+                case MessageType.onSuccessLetter:
                     return new OnSuccessLetterMessage();
-                case Messages.onRepeatedLetter:
+                case MessageType.onRepeatedLetter:
                     return new OnRepeatedLetterMessage();
-                case Messages.invalidEntry:
+                case MessageType.invalidEntry:
                     return new InvalidEntryMessage();
                 default:
                     return null;

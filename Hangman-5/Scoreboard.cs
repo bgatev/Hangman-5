@@ -8,8 +8,8 @@
     /// </summary>
     public sealed class Scoreboard
     {
-        private const int TOPSCORE_MAX_RECORDS = 5;
-        private static readonly List<KeyValuePair<int, string>> topScore = new List<KeyValuePair<int, string>>();
+        private const int TopScoreMaxRecords = 5;
+        private static readonly List<KeyValuePair<int, string>> GameTopScore = new List<KeyValuePair<int, string>>();
 
         public Scoreboard()
         {
@@ -19,32 +19,30 @@
         {
             get
             {
-                return topScore;
+                return GameTopScore;
             }
         }
 
         public static bool IsTopScoreResult(int mistakes)
         {
-            if (Scoreboard.TopScore.Count < TOPSCORE_MAX_RECORDS)
+            if (TopScore.Count < TopScoreMaxRecords)
             {
                 return true;
             }
-            else
-            {
-                int worstResult = Scoreboard.TopScore[TOPSCORE_MAX_RECORDS - 1].Key;
 
-                if (mistakes < worstResult)
-                {
-                    return true;
-                }
+            var worstResult = TopScore[TopScoreMaxRecords - 1].Key;
+
+            if (mistakes < worstResult)
+            {
+                return true;
             }
 
             return false;
         }
 
-        public static void AddNewTopscoreRecord(int mistakes)
+        public static void AddNewTopScoreRecord(int mistakes)
         {
-            if (TopScore.Count == TOPSCORE_MAX_RECORDS)
+            if (TopScore.Count == TopScoreMaxRecords)
             {
                 TopScore.RemoveAt(TopScore.Count - 1);
             }

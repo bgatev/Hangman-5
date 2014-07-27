@@ -1,7 +1,5 @@
-﻿namespace HangmanGame
+﻿namespace Hangman.Interfaces
 {
-    using System;
-
     public interface IPrintable
     {
         void Print();

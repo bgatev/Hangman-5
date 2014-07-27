@@ -1,7 +1,5 @@
-﻿namespace HangmanGame
+﻿namespace Hangman.Interfaces
 {
-    using System;
-
     public interface IMessage
     {
         string Content(params object[] messageParams);

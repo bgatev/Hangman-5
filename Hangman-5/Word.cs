@@ -1,11 +1,16 @@
 ﻿namespace HangmanGame
 {
     using System.Text;
-    using Extensions;   //Entensions Pattern
-    
+    using Hangman.Extensions;
+
+    // Entensions Pattern
+
+    /// <summary>
+    ///     This class takes a word and keeps it's characters array. Also provides useful methods over that array.
+    /// </summary>
     public class Word
     {
-        internal char[] Chars;
+        internal readonly char[] Chars;
 
         public Word(string word = "")
         {
@@ -14,17 +19,16 @@
 
         public char this[int number]
         {
-            get
-            {
-                return Chars[number];
-            }
+            get { return this.Chars[number]; }
 
-            set
-            {
-                Chars[number] = value;
-            }
+            set { this.Chars[number] = value; }
         }
 
+        /// <summary>
+        ///     Checks if the user's suggested letter is contained within the secret word.
+        /// </summary>
+        /// <param name="suggestedLetter"> the letter that the user suggested</param>
+        /// <returns></returns>
         public bool IsLetterRevealed(string suggestedLetter)
         {
             this.ThrowIfArgumentIsNull("IsLetterRevealed Current word");
@@ -40,6 +44,10 @@
             return false;
         }
 
+        /// <summary>
+        ///     Checks if the secret word is fully revealed.
+        /// </summary>
+        /// <returns></returns>
         public bool IsRevealed()
         {
             this.ThrowIfArgumentIsNull("IsRevealed Current word");
@@ -55,6 +63,11 @@
             return true;
         }
 
+        /// <summary>
+        ///     Gets the first unrevealed letter and reveals all such letters in the secret word.
+        /// </summary>
+        /// <param name="secretWord">the secret word</param>
+        /// <returns></returns>
         public char GetHelp(string secretWord)
         {
             char revealedLetter = secretWord[0];
@@ -79,15 +92,19 @@
             return revealedLetter;
         }
 
+        /// <summary>
+        ///     Reconstructs the whole secret word from it's char array.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             this.ThrowIfArgumentIsNull("Current word");
 
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
 
             for (int i = 0; i < this.Chars.Length; i++)
             {
-                sb.Append(this.Chars[i]);    
+                sb.Append(this.Chars[i]);
             }
 
             return sb.ToString();

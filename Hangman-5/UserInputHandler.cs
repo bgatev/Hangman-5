@@ -1,9 +1,13 @@
-﻿using System;
-using Extensions;
-using Hangman.Interfaces;
-
-namespace HangmanGame
+﻿namespace HangmanGame
 {
+    using System;
+    using Hangman;
+    using Hangman.Extensions;
+    using Hangman.Interfaces;
+
+    /// <summary>
+    ///     Handler class which manages the user input and is used by the game commands
+    /// </summary>
     public class UserInputHandler : IUserInputHandler
     {
         private readonly string wordToGuess;
@@ -12,7 +16,10 @@ namespace HangmanGame
         private string lastCommand;
         private int mistakes;
 
-        public UserInputHandler (string wordToGuess)
+        /// <summary>
+        /// </summary>
+        /// <param name="wordToGuess">the word that the user must guess</param>
+        public UserInputHandler(string wordToGuess)
         {
             this.wordToGuess = wordToGuess;
             this.CurrentWord = new Words(this.wordToGuess);
@@ -20,14 +27,13 @@ namespace HangmanGame
             this.CurrentWord.Empty(this.wordToGuess.Length);
         }
 
-        public bool EndOfAllGames { get; private set; }
-
-        public bool EndOfCurrentGame { get; set; }
-
         public string LastInput { get; private set; }
 
         public Words CurrentWord { get; private set; }
 
+        /// <summary>
+        ///     Gets the user guess or command from the console and sets the internal class fields to  the appropriate values.
+        /// </summary>
         public void GetUserInput()
         {
             string suggestedLetter = string.Empty;
@@ -47,11 +53,12 @@ namespace HangmanGame
                         suggestedLetter = inputLine;
                         break;
                     }
-                    Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<Messages>()).Content());
+
+                    Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<MessageType>()).Content());
                 }
                 else if (inputLine.Length == 0)
                 {
-                    Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<Messages>()).Content());
+                    Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<MessageType>()).Content());
                 }
                 else if ((inputLine == "top") || (inputLine == "restart") || (inputLine == "help") ||
                          (inputLine == "exit"))
@@ -61,13 +68,16 @@ namespace HangmanGame
                 }
                 else
                 {
-                    Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<Messages>()).Content());
+                    Console.WriteLine(MessageFactory.GetMessage("invalidEntry".ToEnum<MessageType>()).Content());
                 }
             }
 
             this.LastInput = suggestedLetter;
         }
 
+        /// <summary>
+        ///     Handles the user guess command.
+        /// </summary>
         public void ProcessUserGuess()
         {
             int revealedLetters = 0;
@@ -92,23 +102,24 @@ namespace HangmanGame
                 if (!wordIsRevealed)
                 {
                     Console.WriteLine(
-                                      MessageFactory.GetMessage("onSuccessLetter".ToEnum<Messages>())
+                                      MessageFactory.GetMessage("onSuccessLetter".ToEnum<MessageType>())
                                                     .Content(revealedLetters));
                 }
             }
             else
             {
                 Console.WriteLine(
-                                  MessageFactory.GetMessage("onRepeatedLetter".ToEnum<Messages>())
+                                  MessageFactory.GetMessage("onRepeatedLetter".ToEnum<MessageType>())
                                                 .Content(this.LastInput[0]));
                 this.mistakes++;
             }
         }
 
+        /// <summary>
+        ///     Handles the user game command.
+        /// </summary>
         public void ProcessUserCommand()
         {
-            this.EndOfCurrentGame = false;
-            this.EndOfAllGames = false;
             this.helpIsUsed = false;
 
             switch (this.lastCommand)
@@ -117,22 +128,22 @@ namespace HangmanGame
                     Scoreboard.Print();
                     break;
                 case "restart":
-                    this.EndOfCurrentGame = true;
-                    this.EndOfAllGames = false;
                     break;
                 case "exit":
-                    Console.WriteLine(MessageFactory.GetMessage("exit".ToEnum<Messages>()).Content());
-                    this.EndOfCurrentGame = true;
-                    this.EndOfAllGames = true;
+                    Console.WriteLine(MessageFactory.GetMessage("exit".ToEnum<MessageType>()).Content());
                     break;
                 case "help":
                     char revealedLetter = this.CurrentWord.GetHelp(this.wordToGuess);
-                    Console.WriteLine(MessageFactory.GetMessage("getHelp".ToEnum<Messages>()).Content(revealedLetter));
+                    Console.WriteLine(MessageFactory.GetMessage("getHelp".ToEnum<MessageType>()).Content(revealedLetter));
                     this.helpIsUsed = true;
                     break;
             }
         }
 
+        /// <summary>
+        ///     Checks if the word is guessed.
+        /// </summary>
+        /// <returns></returns>
         public bool IsWon()
         {
             bool wordIsRevealed = this.CurrentWord.IsRevealed();
@@ -141,19 +152,19 @@ namespace HangmanGame
             {
                 if (this.helpIsUsed)
                 {
-                    Console.WriteLine(MessageFactory.GetMessage("cheatWin".ToEnum<Messages>()).Content(this.mistakes));
+                    Console.WriteLine(MessageFactory.GetMessage("cheatWin".ToEnum<MessageType>()).Content(this.mistakes));
                     this.CurrentWord.Print();
                 }
                 else
                 {
-                    Console.WriteLine(MessageFactory.GetMessage("win".ToEnum<Messages>()).Content(this.mistakes));
+                    Console.WriteLine(MessageFactory.GetMessage("win".ToEnum<MessageType>()).Content(this.mistakes));
                     this.CurrentWord.Print();
 
                     bool topscoreResult = Scoreboard.IsTopScoreResult(this.mistakes);
 
                     if (topscoreResult)
                     {
-                        Scoreboard.AddNewTopscoreRecord(this.mistakes);
+                        Scoreboard.AddNewTopScoreRecord(this.mistakes);
                         Scoreboard.Print();
                     }
                 }

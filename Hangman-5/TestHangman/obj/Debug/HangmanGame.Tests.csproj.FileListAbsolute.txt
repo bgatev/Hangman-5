@@ -12,3 +12,10 @@ C:\Users\Nina\Documents\GitHub\Hangman-5\Hangman-5\TestHangman\bin\Debug\Hangman
 C:\Users\Nina\Documents\GitHub\Hangman-5\Hangman-5\TestHangman\obj\Debug\HangmanGame.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Nina\Documents\GitHub\Hangman-5\Hangman-5\TestHangman\obj\Debug\TestHangman.dll
 C:\Users\Nina\Documents\GitHub\Hangman-5\Hangman-5\TestHangman\obj\Debug\TestHangman.pdb
+D:\TELERIK\Teamworks\Hangman-5\Hangman-5\TestHangman\bin\Debug\TestHangman.dll
+D:\TELERIK\Teamworks\Hangman-5\Hangman-5\TestHangman\bin\Debug\TestHangman.pdb
+D:\TELERIK\Teamworks\Hangman-5\Hangman-5\TestHangman\bin\Debug\Hangman.exe
+D:\TELERIK\Teamworks\Hangman-5\Hangman-5\TestHangman\bin\Debug\Hangman.pdb
+D:\TELERIK\Teamworks\Hangman-5\Hangman-5\TestHangman\obj\Debug\HangmanGame.Tests.csprojResolveAssemblyReference.cache
+D:\TELERIK\Teamworks\Hangman-5\Hangman-5\TestHangman\obj\Debug\TestHangman.dll
+D:\TELERIK\Teamworks\Hangman-5\Hangman-5\TestHangman\obj\Debug\TestHangman.pdb

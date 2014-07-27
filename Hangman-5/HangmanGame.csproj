@@ -44,13 +44,13 @@
     <Compile Include="Commands\GetUserInputCommand.cs" />
     <Compile Include="Commands\ProcessUserCommand.cs" />
     <Compile Include="Commands\ProcessUserGuessCommand.cs" />
-    <Compile Include="Entensions\ClassExtensions.cs" />
     <Compile Include="Executor.cs" />
+    <Compile Include="Extensions\ClassExtensions.cs" />
     <Compile Include="HangmanRunner.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IPrintable.cs" />
     <Compile Include="Interfaces\IUserInputHandler.cs" />
-    <Compile Include="Messages.cs" />
+    <Compile Include="MessageType.cs" />
     <Compile Include="Messages\CheatWinMessage.cs" />
     <Compile Include="Messages\ExitMessage.cs" />
     <Compile Include="MessageFactory.cs" />
@@ -64,7 +64,7 @@
     <Compile Include="Interfaces\IMessage.cs" />
     <Compile Include="Messages\WinMessage.cs" />
     <Compile Include="Scoreboard.cs" />
-    <Compile Include="Entensions\StringExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="UserInputHandler.cs" />
     <Compile Include="Word.cs" />
     <Compile Include="Words.cs" />

@@ -1,6 +1,6 @@
-﻿namespace HangmanGame
+﻿namespace Hangman.Messages
 {
-    using System;
+    using Interfaces;
 
     public class WinMessage : IMessage
     {

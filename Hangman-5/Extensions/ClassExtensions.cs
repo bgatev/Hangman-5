@@ -1,11 +1,11 @@
-﻿namespace Extensions
+namespace Hangman.Extensions
 {
     using System;
 
     public static class ClassExtensions
     {
         /// <summary>
-        /// Throws an exception if the object called upon is null.
+        ///     Throws an exception if the object called upon is null.
         /// </summary>
         /// <typeparam name="T">The calling class</typeparam>
         /// <param name="obj">The This object</param>
@@ -17,22 +17,5 @@
                 throw new ArgumentNullException(text + " not allowed to be null");
             }
         }
-
-        /*
-		[TestMethod, ExpectedException(typeof(ArgumentNullException))]
-		public void ThrowIfArgumentIsNullOnString()
-		{
-			string sut = null;
-
-			sut.ThrowIfArgumentIsNull("string");
-		}
-
-		[TestMethod]
-		public void ThrowIfArgumentIsNotNullOnString()
-		{
-			string sut = "not null";
-
-			sut.ThrowIfArgumentIsNull("string");
-		}*/
     }
 }

@@ -1,13 +1,10 @@
-﻿using Hangman.Interfaces;
-
-namespace HangmanGame.Commands
+﻿namespace Hangman.Commands
 {
-    using System;
     using Interfaces;
 
     public class ProcessUserGuessCommand : ICommand
     {
-        private IUserInputHandler handler;
+        private readonly IUserInputHandler handler;
 
         public ProcessUserGuessCommand(IUserInputHandler handler)
         {

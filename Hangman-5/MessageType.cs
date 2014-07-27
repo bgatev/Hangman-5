@@ -1,6 +1,6 @@
-﻿namespace HangmanGame
+﻿namespace Hangman
 {
-    public enum Messages
+    public enum MessageType
     {
         welcome = 0,
         exit = 1,

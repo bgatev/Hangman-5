@@ -1,4 +1,4 @@
-﻿namespace Extensions
+﻿namespace Hangman.Extensions
 {
     using System;
 

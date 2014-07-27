@@ -1,14 +1,13 @@
 ﻿namespace HangmanGame.Tests
 {
-    using HangmanGame;
     using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.IO;
+    using Hangman;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class WordsTest
     {
-        
         private static readonly string Word = "program";
         private Words testwordToGuess;
 
@@ -22,7 +21,7 @@
         public void CharactersShouldBeAccessible()
         {
             char expectedChar = Word[3];
-            Assert.AreEqual(expectedChar, this.testwordToGuess[3]);   
+            Assert.AreEqual(expectedChar, this.testwordToGuess[3]);
         }
 
         [TestMethod]
@@ -70,9 +69,9 @@
         public void TestPrint()
         {
             this.testwordToGuess.Empty(Word.Length);
-            
+
             string result;
-            using (StringWriter writer = new StringWriter())
+            using (var writer = new StringWriter())
             {
                 Console.SetOut(writer);
 

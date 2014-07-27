@@ -1,6 +1,5 @@
-﻿namespace HangmanGame
+﻿namespace Hangman
 {
-    using System;
     using System.Collections.Generic;
     using Interfaces;
 
