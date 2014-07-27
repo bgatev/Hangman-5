@@ -3,7 +3,7 @@
     using System.Text;
     using Hangman.Extensions;
 
-    // Entensions Pattern
+    // Extensions Pattern
 
     /// <summary>
     ///     This class takes a word and keeps it's characters array. Also provides useful methods over that array.
