@@ -1,4 +1,4 @@
-﻿namespace HangmanGame
+﻿namespace Hangman
 {
     /// <summary>
     ///     Template Method Design Pattern. Defines a single person "Hangman" game model.

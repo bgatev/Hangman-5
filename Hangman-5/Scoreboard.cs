@@ -1,26 +1,19 @@
-﻿namespace HangmanGame
+﻿namespace Hangman
 {
     using System;
     using System.Collections.Generic;
 
     /// <summary>
-    /// Singleton Pattern for Scoreboard
+    ///     Singleton Pattern for Scoreboard
     /// </summary>
     public sealed class Scoreboard
     {
         private const int TopScoreMaxRecords = 5;
         private static readonly List<KeyValuePair<int, string>> GameTopScore = new List<KeyValuePair<int, string>>();
 
-        public Scoreboard()
-        {
-        }
-
         public static List<KeyValuePair<int, string>> TopScore
         {
-            get
-            {
-                return GameTopScore;
-            }
+            get { return GameTopScore; }
         }
 
         public static bool IsTopScoreResult(int mistakes)
@@ -30,7 +23,7 @@
                 return true;
             }
 
-            var worstResult = TopScore[TopScoreMaxRecords - 1].Key;
+            int worstResult = TopScore[TopScoreMaxRecords - 1].Key;
 
             if (mistakes < worstResult)
             {
@@ -48,7 +41,7 @@
             }
 
             string playerName = GetPlayerName();
-            KeyValuePair<int, string> newTopscoreRecord = new KeyValuePair<int, string>(mistakes, playerName);
+            var newTopscoreRecord = new KeyValuePair<int, string>(mistakes, playerName);
 
             TopScore.Add(newTopscoreRecord);
             TopScore.Sort(CompareByKeys);
@@ -99,6 +92,6 @@
         private static int CompareByKeys(KeyValuePair<int, string> pairA, KeyValuePair<int, string> pairB)
         {
             return pairA.Key.CompareTo(pairB.Key);
-        }  
+        }
     }
 }

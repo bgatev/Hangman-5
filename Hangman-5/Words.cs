@@ -1,7 +1,6 @@
 ﻿namespace Hangman
 {
     using System;
-    using HangmanGame;
     using Interfaces;
 
     /// <summary>

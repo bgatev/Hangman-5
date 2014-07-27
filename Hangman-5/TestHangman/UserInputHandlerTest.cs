@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using Hangman;
     using HangmanGame;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 

@@ -1,7 +1,5 @@
 ﻿namespace Hangman.Interfaces
 {
-    using HangmanGame;
-
     /// <summary>
     ///     Defines the required methods for a User input handler class.
     /// </summary>

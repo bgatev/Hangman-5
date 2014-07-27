@@ -1,9 +1,8 @@
-﻿namespace HangmanGame
+﻿namespace Hangman
 {
     using System;
-    using Hangman;
-    using Hangman.Extensions;
-    using Hangman.Interfaces;
+    using Extensions;
+    using Interfaces;
 
     /// <summary>
     ///     Handler class which manages the user input and is used by the game commands

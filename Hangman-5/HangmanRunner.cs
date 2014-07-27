@@ -3,7 +3,6 @@
     using System;
     using Commands;
     using Extensions;
-    using HangmanGame;
     using Interfaces;
 
     /// <summary>

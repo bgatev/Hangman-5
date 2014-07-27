@@ -1,7 +1,7 @@
-﻿namespace HangmanGame
+﻿namespace Hangman
 {
     using System.Text;
-    using Hangman.Extensions;
+    using Extensions;
 
     // Extensions Pattern
 
