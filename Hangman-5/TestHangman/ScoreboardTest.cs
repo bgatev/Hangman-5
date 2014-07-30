@@ -11,7 +11,7 @@
         [TestMethod]
         public void ScoreboardShouldAddTopScores()
         {
-            string testName = "Testname";
+            string testName = "testname";
             var reader = new StringReader(testName);
             using (reader)
             {
@@ -21,8 +21,8 @@
 
             int numberOfRecords = Scoreboard.TopScore.Count;
             string topName = Scoreboard.TopScore[0].Value;
-            Assert.AreEqual(1, numberOfRecords);
-            Assert.AreEqual(testName, topName);
+            Assert.AreEqual(2, numberOfRecords);
+            Assert.AreEqual("testname", topName);
         }
 
         public void ScoreboardShouldRecogniseTopScore()

@@ -19,3 +19,10 @@ D:\TELERIK\Teamworks\Hangman-5\Hangman-5\TestHangman\bin\Debug\Hangman.pdb
 D:\TELERIK\Teamworks\Hangman-5\Hangman-5\TestHangman\obj\Debug\HangmanGame.Tests.csprojResolveAssemblyReference.cache
 D:\TELERIK\Teamworks\Hangman-5\Hangman-5\TestHangman\obj\Debug\TestHangman.dll
 D:\TELERIK\Teamworks\Hangman-5\Hangman-5\TestHangman\obj\Debug\TestHangman.pdb
+E:\Downloads\Telerik\HighQualityCode\TeamWork\Hangman-5\TestHangman\bin\Debug\TestHangman.dll
+E:\Downloads\Telerik\HighQualityCode\TeamWork\Hangman-5\TestHangman\bin\Debug\TestHangman.pdb
+E:\Downloads\Telerik\HighQualityCode\TeamWork\Hangman-5\TestHangman\bin\Debug\Hangman.exe
+E:\Downloads\Telerik\HighQualityCode\TeamWork\Hangman-5\TestHangman\bin\Debug\Hangman.pdb
+E:\Downloads\Telerik\HighQualityCode\TeamWork\Hangman-5\TestHangman\obj\Debug\HangmanGame.Tests.csprojResolveAssemblyReference.cache
+E:\Downloads\Telerik\HighQualityCode\TeamWork\Hangman-5\TestHangman\obj\Debug\TestHangman.dll
+E:\Downloads\Telerik\HighQualityCode\TeamWork\Hangman-5\TestHangman\obj\Debug\TestHangman.pdb
